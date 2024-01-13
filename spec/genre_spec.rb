@@ -1,5 +1,4 @@
 require_relative '../classes/genre'
-
 require_relative '../classes/item'
 
 describe Genre do

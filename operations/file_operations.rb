@@ -1,5 +1,4 @@
 def save_items_to_json(items)
-  
   serialized_items = items.map(&:to_json)
   write_json_to_file('items.json', serialized_items)
 end
