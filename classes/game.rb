@@ -3,7 +3,7 @@
 class Game < Item
   attr_accessor :multiplayer, :last_played_at, :author
 
-  def initialize(title, publish_date, multiplayer, last_played_at, author)
+  def initialize(id, title, publish_date, multiplayer, last_played_at, author)
     super(id, title, publish_date)
     @id = Random.rand(1..1000)
     @multiplayer = multiplayer
@@ -15,9 +15,10 @@ class Game < Item
     super && (Date.today - @last_played_at.to_date).to_i > 730
   end
 
-  def to_jason(*_args)
+  def to_json(*_args)
     {
       'class_name' => 'Game',
+      'id' => id,
       'title' => title,
       'publish_date' => publish_date.strftime('%Y-%m-%d'),
       'multiplayer' => multiplayer,
@@ -29,6 +30,6 @@ class Game < Item
   def self.from_json(data)
     author_data = data['author']
     author = Author.from_json(author_data)
-    Game.new(data['title'], Date.parse(data['publish_date']), data['multiplayer'], data['last_played_at'], author)
+    Game.new(data['id'], data['title'], Date.parse(data['publish_date']), data['multiplayer'], data['last_played_at'], author)
   end
 end

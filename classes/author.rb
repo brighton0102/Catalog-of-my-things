@@ -12,7 +12,8 @@ class Author
   end
 
   def add_item(item)
-    @items << item
+    @items.push(item)
+    item.author = self
   end
 
   def to_json(*_args)

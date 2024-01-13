@@ -47,7 +47,7 @@ loop do
   when 5
     list_labels(items)
   when 6
-    list_authors(item)
+    list_authors(items)
   when 7
     add_book(items)
   when 8
