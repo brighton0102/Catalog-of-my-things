@@ -3,7 +3,7 @@
 class Game < Item
   attr_accessor :multiplayer, :last_played_at, :author
 
-  def initialize(id, title, publish_date, multiplayer, last_played_at, author)
+  def initialize(id, title, publish_date, multiplayer, last_played_at, author) # rubocop:disable Metrics/ParameterLists
     super(id, title, publish_date)
     @id = Random.rand(1..1000)
     @multiplayer = multiplayer
@@ -30,6 +30,7 @@ class Game < Item
   def self.from_json(data)
     author_data = data['author']
     author = Author.from_json(author_data)
-    Game.new(data['id'], data['title'], Date.parse(data['publish_date']), data['multiplayer'], data['last_played_at'], author)
+    Game.new(data['id'], data['title'], Date.parse(data['publish_date']), data['multiplayer'], data['last_played_at'],
+             author)
   end
 end

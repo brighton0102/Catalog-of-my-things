@@ -32,4 +32,3 @@ def load_items_from_json
     end
   end.compact
 end
-
