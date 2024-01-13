@@ -12,8 +12,7 @@ class Label
   end
 
   def add_item(item)
-    @items.push(item)
-    item.label = self
+    @items << item
   end
 
   def to_json(*_args)
