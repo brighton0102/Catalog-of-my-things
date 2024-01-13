@@ -12,7 +12,7 @@ class Author
   end
 
   def add_item(item)
-   @item << item
+    @item << item
   end
 
   def to_json(*_args)

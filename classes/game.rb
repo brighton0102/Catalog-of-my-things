@@ -3,7 +3,7 @@
 class Game < Item
   attr_accessor :multiplayer, :last_played_at, :author
 
-  def initialize(title, publish_date, multiplayer, last_played_at, author) # rubocop:disable Metrics/ParameterLists
+  def initialize(title, publish_date, multiplayer, last_played_at, author)
     super(id, title, publish_date)
     @id = Random.rand(1..1000)
     @multiplayer = multiplayer
